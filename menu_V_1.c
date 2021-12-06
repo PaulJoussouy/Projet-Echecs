@@ -11,6 +11,7 @@
 #include "Enregistrer.h"
 #include "afficherPlateaux.h"
 #include "mouvement.h"
+#include "Regles.h"
 
 
 //void Clear()
@@ -215,6 +216,7 @@ void menu_V_1(){
             case 5 : {
 
                 printf("Regles des Echecs : \n");
+                regles();
 
                 break;
             }//fin case 5 : règles
