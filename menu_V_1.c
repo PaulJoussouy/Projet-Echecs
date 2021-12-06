@@ -215,7 +215,6 @@ void menu_V_1(){
 
             case 5 : {
 
-                printf("Regles des Echecs : \n");
                 regles();
 
                 break;
