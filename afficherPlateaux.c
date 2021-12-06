@@ -249,16 +249,6 @@ void afficherCoupCouleur(Piece plateau[DIMENSION][DIMENSION], const int nombreDe
     int i= 0, j= 0 ;
     int fondColorer = 0; // si le fond est colore prend 1 sinon prend 0
 
-    printf("%d  ",tableauxMouvementPossible[0].ligne);
-    printf("%d \n",tableauxMouvementPossible[0].colonne);
-    printf("%d   ",tableauxMouvementPossible[1].ligne);
-    printf("%d \n",tableauxMouvementPossible[1].colonne);
-    printf("%d   ",tableauxMouvementPossible[6].ligne);
-    printf("%d \n",tableauxMouvementPossible[6].colonne);
-    printf("%d   ",tableauxMouvementPossible[7].ligne);
-    printf("%d \n",tableauxMouvementPossible[7].colonne);
-
-
     //affichage du plateau avec la case actuelle selectionner encadre et les coup possible en fond vert (noir en bas) :
     if(nombreDeCoup % 2 == 1){
         printf("noir en bas\n");

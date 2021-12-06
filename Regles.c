@@ -11,7 +11,7 @@ void regles(){
     int reglesSpeciaux = 0;
     int reglesDeroulement = 0;
 
-    printf("Regles des Echecs : \n");
+    printf("\nRegles des Echecs : \n");
 
     printf("Le jeu d echecs est un jeu de societe opposant deux joueurs de part et d autre d un \n");
     printf("tablier appele echiquier compose de soixante-quatre cases, 32 claires et 32 sombres \n");
@@ -120,7 +120,7 @@ void regles(){
                 printf("Mouvement des pieces : \n");
 
                 do {
-
+                    printf("\n");
                     printf("1) Pion \n");
                     printf("2) Tour \n");
                     printf("3) Cavalier \n");
@@ -219,10 +219,10 @@ void regles(){
             case 3 : {
 
                 printf("\n");
-                printf("Coups speciaux : \n");
+                printf("Coups speciaux : ");
 
                 do {
-
+                    printf("\n");
                     printf("1) Roque\n");
                     printf("2) Promotion\n");
                     printf("3) Prise en passant\n");
@@ -308,3 +308,4 @@ void regles(){
 
     return;
 }
+

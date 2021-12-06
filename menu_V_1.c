@@ -6,12 +6,16 @@
 //
 // Created by mbmar on 16/11/2021.
 //
+
+
 #include "menu_V_1.h"
 #include <stdio.h>
 #include "Enregistrer.h"
 #include "afficherPlateaux.h"
 #include "mouvement.h"
 #include "Regles.h"
+#include "Echecs.h"
+
 
 
 //void Clear()
@@ -208,7 +212,6 @@ void menu_V_1(){
 
             case 4 : {
 
-                printf("Reprendre une partie sauvegardee \n");
                 chargerSauvegarde(plateau, &nombreCoups);
                 break;
             }
@@ -331,6 +334,10 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                         // // et qu'elle est bien de la bonne couleur (équipe == 1)
 
                         printf("\nTour des blancs : \n");
+//                        if(verifieEchec(plateau,*pNombreCoups % 2  )>0)   {
+//                            printf("Le roi est en echecs \n");
+//
+//                        }
 
                         // affiche le plateaux:
                         afficherPlateauxCouleur( plateau, *pNombreCoups);
@@ -358,6 +365,8 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                             //demande à l'utilisateur de confirmer pièce sélectionnée
                             printf("1 pour valider la piece, 0 pour changer \n>");
                             scanf(" %d", &deplacer);
+                            fflush(stdin);
+
 
 
                         } while (deplacer != 1);
@@ -366,7 +375,7 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                         do {
 
                             //saisie du déplacement de le pièce sélectionnée
-                            printf("Deplacement : numero de colonne, numero de ligne \n");
+                            printf("Deplacement : lettre + chiffre (E4) \n>");
                             scanf(" %s", coordonnees);
                             numeroColonneFuture = conversionLettre(coordonnees);
                             numeroLigneFuture = conversionChiffre(coordonnees);
@@ -383,7 +392,7 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                             if(mouvementPossible == 1){
                                 plateau[numeroLigneFuture][numeroColonneFuture] = plateau[numeroLigneActuelle][numeroColonneActuelle];
                                 plateau[numeroLigneActuelle][numeroColonneActuelle] = plateauVide[0][0];
-                                        }
+                            }
 
 
                         } while (mouvementPossible != 1);
@@ -407,7 +416,7 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                             do {
 
                                 //sélection de la pièce
-                                printf("Selection : numero de colonne, numero de ligne \n");
+                                printf("Selection : lettre + chiffre (E2) \n>");
                                 scanf(" %s", coordonnees);
                                 numeroColonneActuelle = conversionLettre(coordonnees);
                                 numeroLigneActuelle = conversionChiffre(coordonnees);
@@ -427,6 +436,7 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                             //demande à l'utilisateur de confirmer pièce sélectionnée
                             printf("1 pour valider la piece, 0 pour changer \n>");
                             scanf(" %d", &deplacer);
+                            fflush(stdin);
 
 
 
@@ -435,7 +445,7 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                         do {
 
                             //saisie du déplacement de le pièce sélectionnée
-                            printf("Deplacement : numero de colonne, numero de ligne \n");
+                            printf("Deplacement : lettre + chiffre (E4) \n>");
                             scanf(" %s", coordonnees);
                             numeroColonneFuture = conversionLettre(coordonnees);
                             numeroLigneFuture = conversionChiffre(coordonnees);
