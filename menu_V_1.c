@@ -294,6 +294,8 @@ int conversionChiffre(const char* coordonnees) {
 void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
 
     // variable :
+    int tabVide= 0;
+
     int poursuivre = 0;
     int deplacer = 0;
     int mouvementPossible = 0;
@@ -329,11 +331,11 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                 //poursuivre la partie en cours
                 switch (*pNombreCoups % 2) {
                     case 0 : {
-                        //les blancs jouent
+                        //les jaune jouent
                         // // il faut vérifier qu'il y a bien une pièce saisie
                         // // et qu'elle est bien de la bonne couleur (équipe == 1)
 
-                        printf("\nTour des blancs : \n");
+                        printf("\nTour des jaune : \n");
 //                        if(verifieEchec(plateau,*pNombreCoups % 2  )>0)   {
 //                            printf("Le roi est en echecs \n");
 //
@@ -362,10 +364,26 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                             //affichage coups disponibles:
                             afficherCoupCouleur(plateau, *pNombreCoups, numeroLigneActuelle,  numeroColonneActuelle, tableauMouvementsPossibles);
 
-                            //demande à l'utilisateur de confirmer pièce sélectionnée
-                            printf("1 pour valider la piece, 0 pour changer \n>");
-                            scanf(" %d", &deplacer);
-                            fflush(stdin);
+                            // parcour tableau mouvement possible pour mettre a jour tabvde:
+                            tabVide = 1;
+                            for(int i=0; i< 30; i++){
+                                if((tableauMouvementsPossibles[i]).colonne != -1){
+                                    tabVide= 0;
+                                }
+                            }
+
+                            // si table vide mettre deplacer = 0, afficher message:
+                             if( tabVide == 0){
+                                 //demande à l'utilisateur de confirmer pièce sélectionnée
+                                 printf("1 pour valider la piece, 0 pour changer \n>");
+                                 scanf(" %d", &deplacer);
+                             }
+                             else{
+                                 printf("Veuiller choisir une autre piece\n");
+                                 deplacer =0;
+                             }
+
+
 
 
 
@@ -406,7 +424,7 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                     case 1 : {
                         //les noirs jouent
 
-                        printf("\nTour des noirs : \n");
+                        printf("\nTour des violet : \n");
 
                         // affiche le plateaux:
                         afficherPlateauxCouleur( plateau, *pNombreCoups);
@@ -433,10 +451,24 @@ void jouer( int* pNombreCoups, Piece plateau[DIMENSION][DIMENSION]) {
                             //affichage coups disponibles:
                             afficherCoupCouleur(plateau, *pNombreCoups, numeroLigneActuelle,  numeroColonneActuelle, tableauMouvementsPossibles);
 
-                            //demande à l'utilisateur de confirmer pièce sélectionnée
-                            printf("1 pour valider la piece, 0 pour changer \n>");
-                            scanf(" %d", &deplacer);
-                            fflush(stdin);
+                            // parcour tableau mouvement possible pour mettre a jour tabvde:
+                            tabVide = 1;
+                            for(int i=0; i< 30; i++){
+                                if((tableauMouvementsPossibles[i]).colonne != -1){
+                                    tabVide= 0;
+                                }
+                            }
+
+                            // si table vide mettre deplacer = 0, afficher message:
+                            if( tabVide == 0){
+                                //demande à l'utilisateur de confirmer pièce sélectionnée
+                                printf("1 pour valider la piece, 0 pour changer \n>");
+                                scanf(" %d", &deplacer);
+                            }
+                            else{
+                                printf("Veuiller choisir une autre piece\n");
+                                deplacer =0;
+                            }
 
 
 

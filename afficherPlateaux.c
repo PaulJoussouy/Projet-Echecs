@@ -58,17 +58,17 @@ void jeNeSaisPasCommentNommer(const int nombreDeCoup, Piece plateau[DIMENSION][D
             //mouvement sur une pièce blanche
         else if(plateau[*pNumeroLigneFuture][*pNumeroColonneFuture].equipe == 1){
             printf("Mouvement impossible, veuillez recommencer : \n");
-            mouvementPossible = 0;
+            *mouvementPossible = 0;
         }
             //mouvement sur une case vide
         else if(plateau[*pNumeroLigneFuture][*pNumeroColonneFuture].equipe != 1 && plateau[*pNumeroLigneFuture][*pNumeroColonneFuture].equipe != 2){
             plateau[*pNumeroLigneFuture][*pNumeroColonneFuture] = plateau[*pNumeroLigneActuelle][*pNumeroColonneActuelle];
             plateau[*pNumeroLigneActuelle][*pNumeroColonneActuelle] = plateauVide[0][0];
-            mouvementPossible = 1;
+            *mouvementPossible = 1;
         }
 
 
-    } while (mouvementPossible != 1);
+    } while (*mouvementPossible != 1);
 
 }//fin du tour des blancs
 
@@ -128,7 +128,6 @@ void afficherPlateauxCouleur(Piece plateau[DIMENSION][DIMENSION], const int nomb
 
     //affichage du plateau (noir en bas):
     if(nombreDeCoup % 2 == 1){
-        printf("noir en bas\n");
         printf("    _____ _____ _____ _____ _____ _____ _____ _____ \n");
         for(i= 0; i<=7; i++){
             // affiche le numero de ligne:
@@ -184,7 +183,6 @@ void afficherPlateauxCouleur(Piece plateau[DIMENSION][DIMENSION], const int nomb
 
         //affichage du plateau  (blanc en bas):
     else{
-        printf("blanc en bas\n");
         printf("    _____ _____ _____ _____ _____ _____ _____ _____\n");
         for(i= 7; i>=0; i--){
             // affiche le numero de ligne:
@@ -251,7 +249,6 @@ void afficherCoupCouleur(Piece plateau[DIMENSION][DIMENSION], const int nombreDe
 
     //affichage du plateau avec la case actuelle selectionner encadre et les coup possible en fond vert (noir en bas) :
     if(nombreDeCoup % 2 == 1){
-        printf("noir en bas\n");
         printf("    _____ _____ _____ _____ _____ _____ _____ _____ \n");
         for(i= 0; i<=7; i++){
             // affiche le numero de ligneActuelle:
@@ -371,7 +368,6 @@ void afficherCoupCouleur(Piece plateau[DIMENSION][DIMENSION], const int nombreDe
 
     //affichage du plateau avec case selectionner, coup possible (blanc en bas):
     else{
-        printf("blanc en bas\n");
         printf("    _____ _____ _____ _____ _____ _____ _____ _____\n");
         for(i= 7; i>=0; i--){
             // affiche le numero de ligneActuelle:
